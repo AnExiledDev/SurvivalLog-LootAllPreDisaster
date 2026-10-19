@@ -46,7 +46,7 @@ Works in English and Chinese.
 Delete [font=Courier New]LootAllPreDisaster.dll[/font] from the [font=Courier New]BepInEx\plugins[/font] folder.
 
 [size=5]Configuration[/size]
-To change the mode or the action time, edit [font=Courier New]BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg[/font] while the game is closed, or do it in game on the Mod Manager's Mods screen; a change applies from the next click (see [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CONFIG.md]CONFIG.md[/url]; the cfg file explains each setting in English and Chinese).
+To change the mode or the action time, edit [font=Courier New]BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg[/font] while the game is closed, or change them in game on the Mod Manager's Mods screen with no restart. A new mode applies from the next click, a new action time at once (see [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CONFIG.md]CONFIG.md[/url]; the cfg file explains each setting in English and Chinese).
 
 [size=5]Feedback[/size]
 Found a bug or have an idea? Come say hi on the [url=https://discord.gg/trTsyxUFqg]Core Directive Discord[/url], or leave a comment here. For bugs, please include [font=Courier New]BepInEx\LogOutput.log[/font] and [font=Courier New]BepInEx\loot-all-pre-disaster.log[/font].
@@ -101,7 +101,7 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPr
 从 [font=Courier New]BepInEx\plugins[/font] 文件夹中删除 [font=Courier New]LootAllPreDisaster.dll[/font]。
 
 [size=5]配置[/size]
-可以在游戏内 Mod Manager 的「模组」界面修改，也可以在游戏关闭时编辑 [font=Courier New]BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg[/font]，改动从下一次点击起生效。配置文件中每项设置都有中文说明，完整说明见 [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CONFIG.md]CONFIG.md[/url]（英文）。
+可以在游戏内 Mod Manager 的「模组」界面修改，无需重启；也可以在游戏关闭时编辑 [font=Courier New]BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg[/font]。新的模式从下一次点击起生效，新的动作时间立即生效。配置文件中每项设置都有中文说明，完整说明见 [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CONFIG.md]CONFIG.md[/url]（英文）。
 
 [size=5]反馈[/size]
 发现 bug 或有好点子？欢迎来 [url=https://discord.gg/trTsyxUFqg]Core Directive Discord[/url] 打个招呼，或在这里留言。报告 bug 时，请附上 [font=Courier New]BepInEx\LogOutput.log[/font] 和 [font=Courier New]BepInEx\loot-all-pre-disaster.log[/font]。

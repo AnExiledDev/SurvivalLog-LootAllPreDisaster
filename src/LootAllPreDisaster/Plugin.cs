@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using BepInEx;
 using BepInEx.Configuration;
@@ -10,7 +11,7 @@ using LootAllPreDisaster.Core;
 namespace LootAllPreDisaster;
 
 [BepInPlugin(Guid, "Loot All Pre-Disaster", Version)]
-[BepInDependency(ExiledToolkit.Plugin.Guid)]
+[BepInDependency(ExiledToolkit.Plugin.Guid, ">=0.5.0")]
 public sealed class Plugin : BasePlugin
 {
     private const string Guid = "com.dev.survivallog.lootallpredisaster";
@@ -35,8 +36,9 @@ public sealed class Plugin : BasePlugin
             "Runs：每次搜寻和互动都花费正常的游戏时间。Instant：立即完成，不消耗游戏时间；所有奖励照常获得。",
             new AcceptableValueList<string>("Runs", "Instant")));
 
+        var settings = WatchSettings(mode, time, log.Write);
         var store = new GameStore(log.Write);
-        var controller = new LootController(store, () => new LootSettings(LootSettings.ModeFrom(mode.Value), LootSettings.TimeFrom(time.Value)), log.Write);
+        var controller = new LootController(store, settings, log.Write);
 
         InstantPatch.Apply(new Harmony(Guid), log.Write);
         ModsMenu.Add(new ModsMenuEntry("lootallpredisaster.loot", Texts.MenuLabel.English, controller.OnClick)
@@ -52,5 +54,23 @@ public sealed class Plugin : BasePlugin
         LootTicker.Log = log.Write;
         LootTicker.Checks.Add(controller.Tick);
         AddComponent<LootTicker>();
+    }
+
+    /// <summary>
+    /// Settings change in game without a restart. Mode is read at each click, since a run's plan is made then;
+    /// ActionTime is handed to the patch at once, so switching to Instant also speeds up a run already going.
+    /// </summary>
+    private static Func<LootSettings> WatchSettings(ConfigEntry<int> mode, ConfigEntry<string> time, Action<string> log)
+    {
+        var current = new LootSettings(LootMode.WalkAndOpen, ActionTime.Runs);
+
+        LiveSettings.Watch(() =>
+        {
+            current = new LootSettings(LootSettings.ModeFrom(mode.Value), LootSettings.TimeFrom(time.Value));
+            InstantPatch.Time = current.Time;
+            log($"settings: mode {(int)current.Mode}, {current.Time}");
+        }, mode, time);
+
+        return () => current;
     }
 }

@@ -15,7 +15,7 @@ Before the disaster, one click searches every container and uses every reward in
 - **Click again to carry on**: anything already searched, or any interaction used up for today, is skipped, so a second click only does what is left.
 - **Log file**: each click and how the run ended are written to `BepInEx\loot-all-pre-disaster.log`.
 
-Settings are in [CONFIG.md](CONFIG.md).
+Settings are in [CONFIG.md](CONFIG.md). With the Mod Manager they change in game on its Mods screen, no restart needed.
 
 Pairs well with [Full Queue](https://www.nexusmods.com/survivallog/mods/32). Before the disaster the game keeps only one order, so any order you give during a run throws the rest of the run away. With Full Queue your order joins the end of the queue instead, and the queue bar shows every waiting step of the run, not just the first 5.
 

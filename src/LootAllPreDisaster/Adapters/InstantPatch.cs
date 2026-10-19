@@ -22,10 +22,13 @@ internal static class InstantPatch
     /// <summary>The run in progress; set from the ticker's frame, read from the game's.</summary>
     public static volatile LootRun Run = LootRun.None;
 
+    /// <summary>The ActionTime setting now; set when it changes, so it also applies to a run already going.</summary>
+    public static volatile ActionTime Time = ActionTime.Runs;
+
     /// <summary>The leading role the run belongs to.</summary>
     public static long RoleId;
 
-    /// <summary>Hooked whatever the setting, since the setting is read at each press.</summary>
+    /// <summary>Hooked whatever the setting, since the setting can change while the game runs.</summary>
     public static void Apply(Harmony harmony, Action<string> log)
     {
         _log = log;
@@ -51,7 +54,7 @@ internal static class InstantPatch
         {
             var run = Run;
 
-            if (!run.IsActive || run.Settings.Time != ActionTime.Instant || args == null) return;
+            if (!run.IsActive || Time != ActionTime.Instant || args == null) return;
             if (args._ArgsType_k__BackingField != EffectArgsType.Action || args._OwnerId_k__BackingField != RoleId) return;
             if (!IsRunsAction(run)) return;
 

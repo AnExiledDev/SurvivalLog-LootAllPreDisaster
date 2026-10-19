@@ -1,6 +1,6 @@
 # Loot All Pre-Disaster settings
 
-Settings live in `BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg`, created the first time the game starts with the mod. Change them in game on the Mod Manager's Mods screen, or edit the file while the game is closed. Either way, a change applies from the next click. Delete the file to get the defaults back.
+Settings live in `BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg`, created the first time the game starts with the mod. Change them in game on the Mod Manager's Mods screen with no restart, or edit the file while the game is closed. A new `Mode` applies from the next click; a new `ActionTime` applies at once, even to a run already going. Delete the file to get the defaults back.
 
 ## Loot
 
