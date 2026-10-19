@@ -35,7 +35,11 @@ public sealed class Plugin : BasePlugin
         var store = new GameStore(log.Write);
         var controller = new LootController(store, settings, log.Write);
 
-        OrderPatch.Apply(new Harmony(Guid), log.Write);
+        var harmony = new Harmony(Guid);
+
+        OrderPatch.Apply(harmony, log.Write);
+        BagWindowPatch.Apply(harmony, log.Write);
+        BagWindowPatch.Opened = controller.OnBagWindowOpened;
         ModsMenu.Add(new ModsMenuEntry("lootallpredisaster.loot", Texts.MenuLabel.English, controller.OnClick)
         {
             ChineseLabel = Texts.MenuLabel.Chinese,

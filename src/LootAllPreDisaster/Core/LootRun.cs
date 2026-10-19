@@ -30,6 +30,7 @@ public sealed class LootRun
 
     private readonly HashSet<long> _targets;
     private readonly List<long> _toTake;
+    private readonly HashSet<long> _takenFrom = new();
     private float? _idleSince;
 
     public LootRun(RunPlan plan, LootSettings settings)
@@ -51,9 +52,13 @@ public sealed class LootRun
     public IReadOnlyList<long> DueForTake(Func<long, bool> isSearched) =>
         IsActive ? _toTake.Where(isSearched).ToList() : Array.Empty<long>();
 
+    /// <summary>Kept after the run ends, so a bag window that shows late for a container it took from still closes.</summary>
+    public bool WasTakenFrom(long containerId) => _takenFrom.Contains(containerId);
+
     public TakeOutcome Took(long containerId, int itemsLeft)
     {
         _toTake.Remove(containerId);
+        _takenFrom.Add(containerId);
 
         if (itemsLeft <= 0) return TakeOutcome.Emptied;
 

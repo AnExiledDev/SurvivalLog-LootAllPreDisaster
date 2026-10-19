@@ -214,14 +214,26 @@ internal sealed class GameStore
         }
     }
 
+    public bool IsBagScreenOpen()
+    {
+        try
+        {
+            return GameSingleton.Existing<ReduxUISystem>()?.IsUIActive(Il2CppType.Of<WebUI_BackpackUI>()) == true;
+        }
+        catch (Exception ex)
+        {
+            ReportOnce("bag screen check", ex);
+
+            return false;
+        }
+    }
+
     /// <summary>The search opens the bag screen when it ends; the modes that take contents close it again.</summary>
     public void CloseBagScreen()
     {
         try
         {
-            var ui = GameSingleton.Existing<ReduxUISystem>();
-
-            if (ui != null && ui.IsUIActive(Il2CppType.Of<WebUI_BackpackUI>())) Ac_BackpackUI_Close.SendAction();
+            if (IsBagScreenOpen()) Ac_BackpackUI_Close.SendAction();
         }
         catch (Exception ex)
         {

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using ExiledToolkit;
 using LootAllPreDisaster.Core;
 
@@ -7,7 +8,8 @@ namespace LootAllPreDisaster.Adapters;
 
 /// <summary>
 /// The Mods menu entry and the run it starts. A press plans the store and lines up the actions; the ticker then
-/// empties each container its search opened (modes 2 and 3) and ends the run when the character has nothing of it left.
+/// empties each container its search opened (modes 2 and 3), closes the bag window the search opened for it, and ends
+/// the run when the character has nothing of it left.
 /// </summary>
 internal sealed class LootController
 {
@@ -16,6 +18,8 @@ internal sealed class LootController
     private readonly GameStore _store;
     private readonly Func<LootSettings> _settings;
     private readonly Action<string> _log;
+    private readonly BagWindowWatch _window = new();
+    private float _now;
     private float _nextTick;
 
     public LootController(GameStore store, Func<LootSettings> settings, Action<string> log)
@@ -53,10 +57,20 @@ internal sealed class LootController
         }
     }
 
+    /// <summary>Each frame: the run's checks a few times a second, the bag window every frame so it closes before it is seen.</summary>
     public void Tick(float now)
     {
-        if (!Run.IsActive || now < _nextTick) return;
+        _now = now;
 
+        if (Run.IsActive && now >= _nextTick) TickRun(now);
+
+        CloseEmptiedWindow(now);
+    }
+
+    public void OnBagWindowOpened(long containerId) => _window.Opened(containerId, _now);
+
+    private void TickRun(float now)
+    {
         _nextTick = now + TickSeconds;
 
         if (_store.Locate() != Place.Store)
@@ -114,7 +128,7 @@ internal sealed class LootController
         {
             var itemsLeft = _store.Take(containerId);
 
-            _store.CloseBagScreen();
+            if (!BagWindowPatch.IsHooked) _store.CloseBagScreen();
 
             if (Run.Took(containerId, itemsLeft) == TakeOutcome.Emptied) continue;
 
@@ -126,6 +140,13 @@ internal sealed class LootController
         }
 
         return true;
+    }
+
+    private void CloseEmptiedWindow(float now)
+    {
+        var run = Run;
+
+        if (_window.ShouldClose(_store.IsBagScreenOpen, run.WasTakenFrom, containerId => run.DueForTake(_store.IsSearched).Contains(containerId), now)) _store.CloseBagScreen();
     }
 
     private void EndRun(string why)

@@ -50,6 +50,18 @@ public class LootRunTests
     }
 
     [Fact]
+    public void The_run_remembers_what_it_took_from_after_it_ends()
+    {
+        var run = new LootRun(Plan(new long[] { 1, 2 }), Take);
+
+        run.Took(1, 0);
+        run.End();
+
+        Assert.True(run.WasTakenFrom(1));
+        Assert.False(run.WasTakenFrom(2));
+    }
+
+    [Fact]
     public void A_container_that_only_part_fits_stops_the_run()
     {
         var run = new LootRun(Plan(new long[] { 1, 2 }), Take);
