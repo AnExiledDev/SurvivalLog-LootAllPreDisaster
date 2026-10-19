@@ -49,26 +49,15 @@ public class PressAndSettingsTests
         Assert.Equal(expected, LootSettings.ModeFrom(value));
     }
 
-    [Theory]
-    [InlineData("Instant", ActionTime.Instant)]
-    [InlineData(" instant ", ActionTime.Instant)]
-    [InlineData("Runs", ActionTime.Runs)]
-    [InlineData("fast", ActionTime.Runs)]
-    [InlineData(null, ActionTime.Runs)]
-    public void Action_time_is_instant_only_when_set_to_instant(string? value, ActionTime expected)
-    {
-        Assert.Equal(expected, LootSettings.TimeFrom(value));
-    }
-
     [Fact]
     public void Only_mode_three_stands_still_and_only_mode_one_leaves_the_taking_to_the_player()
     {
-        Assert.True(new LootSettings(LootMode.WalkAndOpen, ActionTime.Runs).Walks);
-        Assert.False(new LootSettings(LootMode.WalkAndOpen, ActionTime.Runs).TakesContents);
-        Assert.True(new LootSettings(LootMode.WalkAndTake, ActionTime.Runs).Walks);
-        Assert.True(new LootSettings(LootMode.WalkAndTake, ActionTime.Runs).TakesContents);
-        Assert.False(new LootSettings(LootMode.TakeInPlace, ActionTime.Runs).Walks);
-        Assert.True(new LootSettings(LootMode.TakeInPlace, ActionTime.Runs).TakesContents);
+        Assert.True(new LootSettings(LootMode.WalkAndOpen).Walks);
+        Assert.False(new LootSettings(LootMode.WalkAndOpen).TakesContents);
+        Assert.True(new LootSettings(LootMode.WalkAndTake).Walks);
+        Assert.True(new LootSettings(LootMode.WalkAndTake).TakesContents);
+        Assert.False(new LootSettings(LootMode.TakeInPlace).Walks);
+        Assert.True(new LootSettings(LootMode.TakeInPlace).TakesContents);
     }
 
     [Fact]

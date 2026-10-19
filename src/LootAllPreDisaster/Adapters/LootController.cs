@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using ExiledToolkit;
 using LootAllPreDisaster.Core;
 
@@ -26,13 +27,13 @@ internal sealed class LootController
 
     private static LootRun Run
     {
-        get => InstantPatch.Run;
-        set => InstantPatch.Run = value;
+        get => OrderPatch.Run;
+        set => OrderPatch.Run = value;
     }
 
     public bool IsShown() => _store.IsBeforeDisaster();
 
-    /// <summary>The settings are read at each press, so a change in the config file applies to the next one.</summary>
+    /// <summary>The settings are read at each press, so a change of mode applies to the next one.</summary>
     public void OnClick()
     {
         var settings = _settings();
@@ -67,20 +68,20 @@ internal sealed class LootController
 
         if (!TakeDue()) return;
 
-        if (Run.IsOver(_store.IsTargetQueued, _store.IsSearched)) EndRun("done");
+        if (Run.IsOver(_store.IsTargetQueued, _store.IsSearched, now)) EndRun("done");
     }
 
     private void Begin(RunPlan plan, LootSettings settings)
     {
         var run = new LootRun(plan, settings);
 
-        _log($"press: mode {(int)settings.Mode}, {settings.Time}; {plan.Queue.Count} actions, {plan.Searches.Count} searches, {plan.Rewards} interactions, {plan.Leftovers.Count} containers searched before");
-        InstantPatch.RoleId = _store.RoleId();
+        _log($"press: mode {(int)settings.Mode}; {plan.Queue.Count} actions, {plan.Searches.Count} searches, {plan.Rewards} interactions, {plan.Leftovers.Count} containers searched before");
+        OrderPatch.RoleId = _store.RoleId();
         Run = run;
 
         if (!TakeDue()) return;
 
-        if (plan.Queue.Count > 0 && !_store.TryStart(plan.Queue))
+        if (plan.Queue.Count > 0 && !StartActions(plan.Queue))
         {
             EndRun("the actions could not be lined up");
             Toast(Texts.Failed, ToastKind.Error);
@@ -89,6 +90,21 @@ internal sealed class LootController
         }
 
         Toast(Texts.Started(plan.Searches.Count + plan.Leftovers.Count, plan.Rewards), ToastKind.Info);
+    }
+
+    /// <summary>The run's own start goes through the same call as the player's orders, so it is marked as the run's.</summary>
+    private bool StartActions(IReadOnlyList<QueuedAction> queue)
+    {
+        OrderPatch.IsRunStarting = true;
+
+        try
+        {
+            return _store.TryStart(queue);
+        }
+        finally
+        {
+            OrderPatch.IsRunStarting = false;
+        }
     }
 
     /// <summary>Empties every opened container still due. False when one did not fit, which stops the run.</summary>

@@ -10,20 +10,19 @@ Before the disaster, one click searches every container and uses every reward in
   1. Walk to each container and interaction. Each container's bag window opens as usual and you take what you want. This is the default and the closest to playing by hand.
   2. Walk to each one and take everything at once, with no window. Items go into your trunk first if you own a car or shopping cart, then into your bag.
   3. Take everything at once with no window and no walking.
-- **Normal time or instant** (`ActionTime`): `Runs` keeps every search and interaction at its normal length. `Instant` ends them at once, so no game time passes; you still get everything they give. In mode 3 with `Instant`, you do not move and the clock does not move.
+- **Stop any time**: any order you give during a run, such as a click to walk somewhere, stops the run and is carried out at once.
 - **Stops when you are full**: in modes 2 and 3, a container that only part fits gives you what fits, then the run stops and tells you. Go home, unload, come back and click again: containers already searched are skipped, and the ones you could not empty are emptied first.
 - **Click again to carry on**: anything already searched, or any interaction used up for today, is skipped, so a second click only does what is left.
 - **Log file**: each click and how the run ended are written to `BepInEx\loot-all-pre-disaster.log`.
 
 Settings are in [CONFIG.md](CONFIG.md). With the Mod Manager they change in game on its Mods screen, no restart needed.
 
-Pairs well with [Full Queue](https://www.nexusmods.com/survivallog/mods/32). Before the disaster the game keeps only one order, so any order you give during a run throws the rest of the run away. With Full Queue your order joins the end of the queue instead, and the queue bar shows every waiting step of the run, not just the first 5.
+Pairs well with [Full Queue](https://www.nexusmods.com/survivallog/mods/32): its queue bar shows every waiting step of the run, not just the first 5. An order you give during a run still stops the run, with or without Full Queue.
 
 ## Known issues and limits
 
 - Works only in a store before the disaster. At home, or after the disaster, the click tells you why it did nothing.
 - Only the floor you are standing on is looted.
-- Without Full Queue, giving any order during a run (moving, using something) ends the run there. Click again to carry on.
 - Mode 3 skips the walk: an interaction that needs you to stand at it may look odd while it plays.
 
 ## Requirements
@@ -62,7 +61,7 @@ dotnet build src/LootAllPreDisaster -c Release -p:GameDir="C:\path\to\Survival L
 
 `GameDir` is the game folder and `ToolkitDll` is a built `ExiledToolkit.dll`. The defaults in the project file are local paths you will almost certainly need to override. The output DLL is at `src\LootAllPreDisaster\bin\Release\LootAllPreDisaster.dll`.
 
-The unit tests cover the pure rules (what a click loots and in what order, when a run stops, how instant actions are stepped) and need nothing from the game:
+The unit tests cover the pure rules (what a click loots and in what order, when a run stops, which orders stop it) and need nothing from the game:
 
 ```
 dotnet test tests/LootAllPreDisaster.Tests

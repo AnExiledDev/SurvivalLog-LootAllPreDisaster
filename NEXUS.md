@@ -9,11 +9,11 @@ Before the disaster, cleaning out a store means clicking every cupboard, fridge 
 [*][b]One click per store[/b]: open the inventory and pick [b]Loot this store[/b] from the Mods dropdown. The entry only shows before the disaster.[/*]
 [*][b]Every container, every reward[/b]: each container not yet searched is searched, and each interaction with a daily reward left today is used. Shop shelves are never touched.[/*]
 [*][b]Three modes[/b]: 1) walk to each one and loot each bag window by hand, the default and the closest to normal play; 2) walk to each one and take everything with no window, trunk first if you own a car or shopping cart, then your bag; 3) take everything with no window and no walking.[/*]
-[*][b]Normal time or instant[/b]: actions take their normal time, or end at once with no game time passing. You still get everything they give.[/*]
+[*][b]Stop any time[/b]: any order you give during a run, such as a click to walk somewhere, stops the run and is carried out at once.[/*]
 [*][b]Stops when you are full[/b]: in modes 2 and 3, a container that only part fits gives what fits and the run stops. Unload at home, come back and click again to carry on where you left off.[/*]
 [/list]
 
-Pairs well with [url=https://www.nexusmods.com/survivallog/mods/32]Full Queue[/url]: without it, any order you give during a run throws the rest of the run away. With it, your order joins the end of the queue, and the queue bar shows every waiting step.
+Pairs well with [url=https://www.nexusmods.com/survivallog/mods/32]Full Queue[/url]: its queue bar shows every waiting step of the run. An order you give during a run still stops the run, with or without Full Queue.
 
 The mod adds no data of its own to your save. Everything it does is the game's own searches, interactions and item moves. You can remove it at any time.
 
@@ -22,7 +22,6 @@ Works in English and Chinese.
 [size=5]Known issues[/size]
 [list]
 [*]Only works in a store before the disaster, and only on the floor you are standing on.[/*]
-[*]Without Full Queue, giving any order during a run ends the run there. Click again to carry on.[/*]
 [*]Mode 3 skips the walk, so an interaction that normally needs you to stand at it may look odd while it plays.[/*]
 [/list]
 
@@ -46,7 +45,7 @@ Works in English and Chinese.
 Delete [font=Courier New]LootAllPreDisaster.dll[/font] from the [font=Courier New]BepInEx\plugins[/font] folder.
 
 [size=5]Configuration[/size]
-To change the mode or the action time, edit [font=Courier New]BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg[/font] while the game is closed, or change them in game on the Mod Manager's Mods screen with no restart. A new mode applies from the next click, a new action time at once (see [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CONFIG.md]CONFIG.md[/url]; the cfg file explains each setting in English and Chinese).
+To change the mode, edit [font=Courier New]BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg[/font] while the game is closed, or change it in game on the Mod Manager's Mods screen with no restart. A new mode applies from the next click (see [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CONFIG.md]CONFIG.md[/url]; the cfg file explains each setting in English and Chinese).
 
 [size=5]Feedback[/size]
 Found a bug or have an idea? Come say hi on the [url=https://discord.gg/trTsyxUFqg]Core Directive Discord[/url], or leave a comment here. For bugs, please include [font=Courier New]BepInEx\LogOutput.log[/font] and [font=Courier New]BepInEx\loot-all-pre-disaster.log[/font].
@@ -64,11 +63,11 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPr
 [*][b]一家店一键搞定[/b]：打开背包，在「模组」下拉菜单中选择[b]「搜寻整家店」[/b]。该选项只在灾变前显示。[/*]
 [*][b]所有容器，所有奖励[/b]：搜寻每个还没搜寻过的容器，并使用每个今天还有剩余奖励的互动。商店货架不受影响。[/*]
 [*][b]三种模式[/b]：1）走到每一处，在每个背包窗口中自己拿取，这是默认模式，也最接近正常游玩；2）走到每一处，不打开窗口直接拿走全部物品，有汽车或购物车时先放进后备箱，再放进背包；3）不打开窗口、不走动，直接拿走全部物品。[/*]
-[*][b]正常时间或立即完成[/b]：动作花费正常时间，或立即完成、不消耗游戏时间。所有奖励照常获得。[/*]
+[*][b]随时停止[/b]：搜寻过程中下达任何指令（比如点击走到别处），都会停止本次搜寻，并立即执行你的指令。[/*]
 [*][b]装满即停[/b]：在模式 2 和 3 中，如果一个容器只能装下一部分，会拿走能装下的，然后停止。回家卸货后再回来按一次，即可从中断处继续。[/*]
 [/list]
 
-推荐搭配 [url=https://www.nexusmods.com/survivallog/mods/32]Full Queue[/url]：没有它时，搜寻过程中下达任何指令都会丢弃剩余的步骤。有了它，你的指令会排到队列末尾，队列栏也会显示所有等待中的步骤。
+推荐搭配 [url=https://www.nexusmods.com/survivallog/mods/32]Full Queue[/url]：它的队列栏会显示本次搜寻所有等待中的步骤。无论是否安装 Full Queue，搜寻过程中下达的指令都会停止本次搜寻。
 
 模组不会往存档里写入自己的数据。它做的一切都是游戏自己的搜寻、互动和物品移动。你可以随时移除它。
 
@@ -77,7 +76,6 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPr
 [size=5]已知问题[/size]
 [list]
 [*]只在灾变前的商店中有效，且只处理你所在的楼层。[/*]
-[*]没有 Full Queue 时，搜寻过程中下达任何指令都会在那里结束本次搜寻。再按一次即可继续。[/*]
 [*]模式 3 不走动，所以平时需要站在旁边的互动，播放时可能看起来有些奇怪。[/*]
 [/list]
 
@@ -101,7 +99,7 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPr
 从 [font=Courier New]BepInEx\plugins[/font] 文件夹中删除 [font=Courier New]LootAllPreDisaster.dll[/font]。
 
 [size=5]配置[/size]
-可以在游戏内 Mod Manager 的「模组」界面修改，无需重启；也可以在游戏关闭时编辑 [font=Courier New]BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg[/font]。新的模式从下一次点击起生效，新的动作时间立即生效。配置文件中每项设置都有中文说明，完整说明见 [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CONFIG.md]CONFIG.md[/url]（英文）。
+可以在游戏内 Mod Manager 的「模组」界面修改，无需重启；也可以在游戏关闭时编辑 [font=Courier New]BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg[/font]。新的模式从下一次点击起生效。配置文件中每项设置都有中文说明，完整说明见 [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CONFIG.md]CONFIG.md[/url]（英文）。
 
 [size=5]反馈[/size]
 发现 bug 或有好点子？欢迎来 [url=https://discord.gg/trTsyxUFqg]Core Directive Discord[/url] 打个招呼，或在这里留言。报告 bug 时，请附上 [font=Courier New]BepInEx\LogOutput.log[/font] 和 [font=Courier New]BepInEx\loot-all-pre-disaster.log[/font]。

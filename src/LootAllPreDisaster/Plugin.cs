@@ -31,16 +31,11 @@ public sealed class Plugin : BasePlugin
             "How a press loots the store. 1: walk to each container and interaction; each container's bag window opens and you take what you want. 2: walk to each one and take everything at once with no window, into the trunk first if you have a car or shopping cart, then the bag. 3: take everything at once with no window and no walking.\n" +
             "按下后如何搜寻商店。1：走到每个容器和互动处；每个容器的背包窗口会打开，由你自己拿取想要的物品。2：走到每一处，不打开窗口直接拿走全部物品，有汽车或购物车时先放进后备箱，再放进背包。3：不打开窗口、不走动，直接拿走全部物品。",
             new AcceptableValueRange<int>(1, 3)));
-        var time = Config.Bind("Loot", "ActionTime", "Runs", new ConfigDescription(
-            "Runs: every search and interaction takes its normal game time. Instant: they end at once and no game time passes; everything is still given.\n" +
-            "Runs：每次搜寻和互动都花费正常的游戏时间。Instant：立即完成，不消耗游戏时间；所有奖励照常获得。",
-            new AcceptableValueList<string>("Runs", "Instant")));
-
-        var settings = WatchSettings(mode, time, log.Write);
+        var settings = WatchSettings(mode, log.Write);
         var store = new GameStore(log.Write);
         var controller = new LootController(store, settings, log.Write);
 
-        InstantPatch.Apply(new Harmony(Guid), log.Write);
+        OrderPatch.Apply(new Harmony(Guid), log.Write);
         ModsMenu.Add(new ModsMenuEntry("lootallpredisaster.loot", Texts.MenuLabel.English, controller.OnClick)
         {
             ChineseLabel = Texts.MenuLabel.Chinese,
@@ -56,20 +51,16 @@ public sealed class Plugin : BasePlugin
         AddComponent<LootTicker>();
     }
 
-    /// <summary>
-    /// Settings change in game without a restart. Mode is read at each click, since a run's plan is made then;
-    /// ActionTime is handed to the patch at once, so switching to Instant also speeds up a run already going.
-    /// </summary>
-    private static Func<LootSettings> WatchSettings(ConfigEntry<int> mode, ConfigEntry<string> time, Action<string> log)
+    /// <summary>The mode changes in game without a restart; it is read at each click, since a run's plan is made then.</summary>
+    private static Func<LootSettings> WatchSettings(ConfigEntry<int> mode, Action<string> log)
     {
-        var current = new LootSettings(LootMode.WalkAndOpen, ActionTime.Runs);
+        var current = new LootSettings(LootMode.WalkAndOpen);
 
         LiveSettings.Watch(() =>
         {
-            current = new LootSettings(LootSettings.ModeFrom(mode.Value), LootSettings.TimeFrom(time.Value));
-            InstantPatch.Time = current.Time;
-            log($"settings: mode {(int)current.Mode}, {current.Time}");
-        }, mode, time);
+            current = new LootSettings(LootSettings.ModeFrom(mode.Value));
+            log($"settings: mode {(int)current.Mode}");
+        }, mode);
 
         return () => current;
     }

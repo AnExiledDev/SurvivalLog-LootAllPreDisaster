@@ -9,9 +9,9 @@ public class RunPlannerTests
     private const int SearchAction = 1919;
     private const int RewardAction = 500;
 
-    private static readonly LootSettings WalkAndOpen = new(LootMode.WalkAndOpen, ActionTime.Runs);
-    private static readonly LootSettings WalkAndTake = new(LootMode.WalkAndTake, ActionTime.Runs);
-    private static readonly LootSettings TakeInPlace = new(LootMode.TakeInPlace, ActionTime.Instant);
+    private static readonly LootSettings WalkAndOpen = new(LootMode.WalkAndOpen);
+    private static readonly LootSettings WalkAndTake = new(LootMode.WalkAndTake);
+    private static readonly LootSettings TakeInPlace = new(LootMode.TakeInPlace);
 
     private static StoreFurniture Container(long id, float x = 0f, bool searched = false, int items = 3) =>
         new(id, Walk, new Spot(x, 0f, 0f), searched, items, new FurnitureFunc[] { new FurnitureFunc.Search(1721, new[] { SearchAction }) });
