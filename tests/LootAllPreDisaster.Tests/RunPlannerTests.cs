@@ -38,6 +38,22 @@ public class RunPlannerTests
     }
 
     [Fact]
+    public void A_searched_container_with_items_left_is_emptied_even_when_it_also_has_a_reward_due()
+    {
+        var sofa = new StoreFurniture(1, Walk, new Spot(0f, 0f, 0f), true, 2, new FurnitureFunc[]
+        {
+            new FurnitureFunc.Search(1721, new[] { SearchAction }),
+            new FurnitureFunc.Reward(900, new[] { RewardAction }, 1, 0),
+        });
+
+        var plan = RunPlanner.Plan(new[] { sofa }, default, WalkAndTake);
+
+        Assert.Equal(new long[] { 1 }, plan.Leftovers);
+        Assert.Equal(1, plan.Rewards);
+        Assert.Empty(plan.Searches);
+    }
+
+    [Fact]
     public void Leftovers_in_containers_searched_before_are_taken_only_in_the_modes_that_take()
     {
         var store = new[] { Container(1, searched: true, items: 2), Container(2, searched: true, items: 0) };

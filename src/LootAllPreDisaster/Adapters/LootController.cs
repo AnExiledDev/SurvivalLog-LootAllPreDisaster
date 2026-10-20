@@ -41,8 +41,12 @@ internal sealed class LootController
     public void OnClick()
     {
         var settings = _settings();
+        var wasRunning = Run.IsActive;
 
         Run.End();
+
+        // With Full Queue's queue mode on, the new run's actions would line up behind what is left of the old one.
+        if (wasRunning) _store.Stop();
 
         switch (Press.Decide(_store.Locate(), () => RunPlanner.Plan(_store.ReadStore(), _store.RolePosition(), settings)))
         {

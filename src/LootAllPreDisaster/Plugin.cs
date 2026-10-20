@@ -28,8 +28,8 @@ public sealed class Plugin : BasePlugin
         log.Write($"===== Loot All Pre-Disaster {Version} started");
 
         var mode = Config.Bind("Loot", "Mode", 1, new ConfigDescription(
-            "How a press loots the store. 1: walk to each container and interaction; each container's bag window opens and you take what you want. 2: walk to each one and take everything at once with no window, into the trunk first if you have a car or shopping cart, then the bag. 3: take everything at once with no window and no walking.\n" +
-            "按下后如何搜寻商店。1：走到每个容器和互动处；每个容器的背包窗口会打开，由你自己拿取想要的物品。2：走到每一处，不打开窗口直接拿走全部物品，有汽车或购物车时先放进后备箱，再放进背包。3：不打开窗口、不走动，直接拿走全部物品。",
+            "How a press loots the store. 1: walk to each container and interaction; each container's bag window opens and you take what you want. 2: walk to each one and take everything at once with no window, into the trunk first if you have a car or shopping cart, then the bag. 3: take everything at once with no window and no walking; each action still takes its normal time.\n" +
+            "按下后如何搜寻商店。1：走到每个容器和互动处；每个容器的背包窗口会打开，由你自己拿取想要的物品。2：走到每一处，不打开窗口直接拿走全部物品，有汽车或购物车时先放进后备箱，再放进背包。3：不打开窗口、不走动，直接拿走全部物品；每个动作仍需正常的时间。",
             new AcceptableValueRange<int>(1, 3)));
         var settings = WatchSettings(mode, log.Write);
         var store = new GameStore(log.Write);

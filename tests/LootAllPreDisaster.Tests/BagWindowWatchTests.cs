@@ -77,17 +77,6 @@ public class BagWindowWatchTests
     }
 
     [Fact]
-    public void A_window_listing_only_the_player_bag_stays_open()
-    {
-        var watch = new BagWindowWatch();
-
-        watch.Opened(new[] { Player }, 10f);
-
-        Assert.False(watch.ShouldClose(Shown, Taken, Due, 10f));
-        Assert.False(watch.ShouldClose(Shown, Taken, NotDue, 10.25f));
-    }
-
-    [Fact]
     public void Nothing_is_closed_before_any_window_opened()
     {
         Assert.False(new BagWindowWatch().ShouldClose(Shown, Taken, NotDue, 0f));

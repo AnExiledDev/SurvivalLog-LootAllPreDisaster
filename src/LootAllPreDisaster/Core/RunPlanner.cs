@@ -31,8 +31,9 @@ public static class RunPlanner
         {
             var funcs = furniture.Funcs.Where(func => IsDue(func, furniture)).ToList();
 
+            // A furniture can be both: a searched container with items left that also has a reward due today.
             if (funcs.Count > 0) visits.Add(new Visit(furniture, funcs));
-            else if (settings.TakesContents && IsLeftover(furniture)) leftovers.Add(furniture.Id);
+            if (settings.TakesContents && IsLeftover(furniture)) leftovers.Add(furniture.Id);
         }
 
         var queue = new List<QueuedAction>();

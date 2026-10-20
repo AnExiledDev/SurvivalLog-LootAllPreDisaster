@@ -6,6 +6,6 @@ Settings live in `BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg`, cr
 
 | Setting | Default | What it does |
 | --- | --- | --- |
-| `Mode` | `1` | How a click loots the store. `1`: walk to each container and interaction; each container's bag window opens and you take what you want. `2`: walk to each one and take everything at once with no window, into the trunk first if you own a car or shopping cart, then the bag. `3`: take everything at once with no window and no walking. |
+| `Mode` | `1` | How a click loots the store. `1`: walk to each container and interaction; each container's bag window opens and you take what you want. `2`: walk to each one and take everything at once with no window, into the trunk first if you own a car or shopping cart, then the bag. `3`: take everything at once with no window and no walking; each action still takes its normal time. |
 
 In modes 2 and 3, a container that only part fits gives what fits and stops the run. Unload at home, come back and click again to carry on.

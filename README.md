@@ -9,7 +9,7 @@ Before the disaster, one click searches every container and uses every reward in
 - **Three ways to loot** (`Mode`):
   1. Walk to each container and interaction. Each container's bag window opens as usual and you take what you want. This is the default and the closest to playing by hand.
   2. Walk to each one and take everything at once, with no window. Items go into your trunk first if you own a car or shopping cart, then into your bag.
-  3. Take everything at once with no window and no walking.
+  3. Take everything at once with no window and no walking; each action still takes its normal time.
 - **Stop any time**: any order you give during a run, such as a click to walk somewhere, stops the run and is carried out at once.
 - **Stops when you are full**: in modes 2 and 3, a container that only part fits gives you what fits, then the run stops and tells you. Go home, unload, come back and click again: containers already searched are skipped, and the ones you could not empty are emptied first.
 - **Click again to carry on**: anything already searched, or any interaction used up for today, is skipped, so a second click only does what is left.
