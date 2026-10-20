@@ -5,6 +5,8 @@ namespace LootAllPreDisaster.Tests;
 
 public class BagWindowWatchTests
 {
+    private const long Player = 1;
+
     private const long Container = 5;
 
     private static bool Taken(long id) => id == Container;
@@ -24,7 +26,7 @@ public class BagWindowWatchTests
     {
         var watch = new BagWindowWatch();
 
-        watch.Opened(Container, 10f);
+        watch.Opened(new[] { Player, Container }, 10f);
 
         Assert.False(watch.ShouldClose(Hidden, Taken, NotDue, 10.2f));
         Assert.True(watch.ShouldClose(Shown, Taken, NotDue, 10.5f));
@@ -35,7 +37,7 @@ public class BagWindowWatchTests
     {
         var watch = new BagWindowWatch();
 
-        watch.Opened(Container, 10f);
+        watch.Opened(new[] { Player, Container }, 10f);
 
         Assert.True(watch.ShouldClose(Shown, Taken, NotDue, 10f));
         Assert.False(watch.ShouldClose(Shown, Taken, NotDue, 10.1f));
@@ -46,7 +48,7 @@ public class BagWindowWatchTests
     {
         var watch = new BagWindowWatch();
 
-        watch.Opened(Container, 10f);
+        watch.Opened(new[] { Player, Container }, 10f);
 
         Assert.False(watch.ShouldClose(Shown, NotTaken, Due, 10f));
         Assert.True(watch.ShouldClose(Shown, Taken, NotDue, 10.25f));
@@ -57,7 +59,7 @@ public class BagWindowWatchTests
     {
         var watch = new BagWindowWatch();
 
-        watch.Opened(Container, 10f);
+        watch.Opened(new[] { Player, Container }, 10f);
 
         Assert.False(watch.ShouldClose(Shown, NotTaken, NotDue, 10f));
         Assert.False(watch.ShouldClose(Shown, Taken, NotDue, 10.25f));
@@ -68,10 +70,21 @@ public class BagWindowWatchTests
     {
         var watch = new BagWindowWatch();
 
-        watch.Opened(Container, 10f);
+        watch.Opened(new[] { Player, Container }, 10f);
 
         Assert.False(watch.ShouldClose(Hidden, Taken, NotDue, 10f + BagWindowWatch.WaitSeconds + 0.1f));
         Assert.False(watch.ShouldClose(Shown, Taken, NotDue, 10f + BagWindowWatch.WaitSeconds + 0.2f));
+    }
+
+    [Fact]
+    public void A_window_listing_only_the_player_bag_stays_open()
+    {
+        var watch = new BagWindowWatch();
+
+        watch.Opened(new[] { Player }, 10f);
+
+        Assert.False(watch.ShouldClose(Shown, Taken, Due, 10f));
+        Assert.False(watch.ShouldClose(Shown, Taken, NotDue, 10.25f));
     }
 
     [Fact]

@@ -67,7 +67,11 @@ internal sealed class LootController
         CloseEmptiedWindow(now);
     }
 
-    public void OnBagWindowOpened(long containerId) => _window.Opened(containerId, _now);
+    /// <summary>Only a window opened during a run is watched; one the player opens afterwards is theirs.</summary>
+    public void OnBagWindowOpened(IReadOnlyList<long> bagOwners)
+    {
+        if (Run.IsActive) _window.Opened(bagOwners, _now);
+    }
 
     private void TickRun(float now)
     {
@@ -146,7 +150,13 @@ internal sealed class LootController
     {
         var run = Run;
 
-        if (_window.ShouldClose(_store.IsBagScreenOpen, run.WasTakenFrom, containerId => run.DueForTake(_store.IsSearched).Contains(containerId), now)) _store.CloseBagScreen();
+        if (_window.ShouldClose(_store.IsBagScreenOpen, run.WasTakenFrom, containerId => run.DueForTake(_store.IsSearched).Contains(containerId), now)) CloseBagScreen();
+    }
+
+    private void CloseBagScreen()
+    {
+        _store.CloseBagScreen();
+        _log("closed a bag window that showed after its container was emptied");
     }
 
     private void EndRun(string why)

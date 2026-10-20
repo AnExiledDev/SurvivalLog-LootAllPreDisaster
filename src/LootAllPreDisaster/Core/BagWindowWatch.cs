@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LootAllPreDisaster.Core;
 
@@ -13,12 +15,13 @@ public sealed class BagWindowWatch
     /// <summary>How long a window the game opened may take to show before the watch stops waiting for it.</summary>
     public const float WaitSeconds = 2f;
 
-    private long? _containerId;
+    private IReadOnlyList<long>? _bagOwners;
     private float _openedAt;
 
-    public void Opened(long containerId, float now)
+    /// <summary>A window opened listing these bags: the player's own and the container's.</summary>
+    public void Opened(IReadOnlyList<long> bagOwners, float now)
     {
-        _containerId = containerId;
+        _bagOwners = bagOwners;
         _openedAt = now;
     }
 
@@ -28,20 +31,20 @@ public sealed class BagWindowWatch
     /// </summary>
     public bool ShouldClose(Func<bool> isWindowShown, Func<long, bool> wasTakenFrom, Func<long, bool> isDueForTake, float now)
     {
-        if (_containerId is not { } containerId) return false;
+        if (_bagOwners is not { } bagOwners) return false;
 
         if (now - _openedAt > WaitSeconds)
         {
-            _containerId = null;
+            _bagOwners = null;
 
             return false;
         }
 
-        var isTaken = wasTakenFrom(containerId);
+        var isTaken = bagOwners.Any(wasTakenFrom);
 
-        if (!isWindowShown() || (!isTaken && isDueForTake(containerId))) return false;
+        if (!isWindowShown() || (!isTaken && bagOwners.Any(isDueForTake))) return false;
 
-        _containerId = null;
+        _bagOwners = null;
 
         return isTaken;
     }
