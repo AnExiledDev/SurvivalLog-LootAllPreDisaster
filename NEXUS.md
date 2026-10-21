@@ -1,5 +1,5 @@
 Name: Loot All Pre-Disaster
-Summary: Before the disaster, one click searches every container and uses every daily reward in the store you are in. 灾变前一键搜寻你所在商店的所有容器，并使用所有每日奖励互动。
+Summary: Clean out a whole store before the disaster with one click: every cupboard, fridge and cash register is searched and every daily reward is used, from the inventory's Mods menu. Walk to each one and loot by hand, take everything on the way, or take it all without walking. Any order you give stops the run. Needs Exiled's Toolkit.
 
 Description (BBCode):
 Before the disaster, cleaning out a store means clicking every cupboard, fridge and cash register one at a time. Loot All Pre-Disaster does the whole store from one entry in the inventory's Mods menu.
