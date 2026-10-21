@@ -15,7 +15,7 @@ namespace LootAllPreDisaster;
 public sealed class Plugin : BasePlugin
 {
     private const string Guid = "com.dev.survivallog.lootallpredisaster";
-    private const string Version = "0.1.0";
+    private const string Version = "0.1.1";
 
     /// <summary>A trash can with a down arrow: emptying something into your own storage.</summary>
     private const string Icon = "M5 4h14v4H5zM6 9h12l-1 11H7zM12 11v6M9.5 14.5 12 17l2.5-2.5";

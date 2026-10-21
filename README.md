@@ -43,7 +43,7 @@ Delete `LootAllPreDisaster.dll` from the `BepInEx\plugins` folder. For a clean s
 
 ## Troubleshooting
 
-Check `BepInEx\LogOutput.log` for `===== Loot All Pre-Disaster 0.1.0 started`. The same lines are in `BepInEx\loot-all-pre-disaster.log`, which survives restarts, along with one line per click and one per run end.
+Check `BepInEx\LogOutput.log` for `===== Loot All Pre-Disaster 0.1.1 started`. The same lines are in `BepInEx\loot-all-pre-disaster.log`, which survives restarts, along with one line per click and one per run end.
 
 If the Mods menu has no **Loot this store** entry, make sure Exiled's Toolkit 0.5.0 or newer is installed and that the disaster has not happened yet.
 
