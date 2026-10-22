@@ -35,7 +35,7 @@ Pairs well with [Full Queue](https://www.nexusmods.com/survivallog/mods/32): its
 
 1. Install the [BepInEx Pack for Survival Log](https://www.nexusmods.com/survivallog/mods/12) (if no other mods were installed before, start the game once so BepInEx finishes setup, then quit).
 2. Install Exiled's Toolkit: download `ExiledToolkit-x.y.z.zip` from [its latest release](https://github.com/AnExiledDev/SurvivalLog-ExiledToolkit/releases/latest) or from [Nexus Mods](https://www.nexusmods.com/survivallog/mods/61), and extract it into the game folder (the folder with `SurvivalLog.exe`).
-3. Copy `LootAllPreDisaster.dll` into the `BepInEx\plugins` folder inside the game folder.
+3. Download `LootAllPreDisaster-x.y.z.zip` from the [latest release](https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/releases/latest) or from [Nexus Mods](https://www.nexusmods.com/survivallog/mods/78), and extract it into the game folder, merging the folders. `LootAllPreDisaster.dll` ends up in `BepInEx\plugins\`.
 
 ## Uninstall
 

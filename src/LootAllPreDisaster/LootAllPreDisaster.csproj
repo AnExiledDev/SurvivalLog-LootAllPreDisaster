@@ -38,6 +38,7 @@
     <AssemblyMetadata Include="ModManager.Settings" Value="Live" />
     <AssemblyMetadata Include="ModManager.GitHub" Value="AnExiledDev/SurvivalLog-LootAllPreDisaster" />
     <AssemblyMetadata Include="ModManager.Changelog" Value="https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CHANGELOG.md" />
+    <AssemblyMetadata Include="ModManager.NexusId" Value="78" />
   </ItemGroup>
 
 </Project>
