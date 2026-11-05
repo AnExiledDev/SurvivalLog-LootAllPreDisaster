@@ -15,7 +15,7 @@ Before the disaster, one click searches every container and uses every reward in
 - **Click again to carry on**: anything already searched, or any interaction used up for today, is skipped, so a second click only does what is left.
 - **Log file**: each click and how the run ended are written to `BepInEx\loot-all-pre-disaster.log`.
 
-Settings are in [CONFIG.md](CONFIG.md). With the Mod Manager they change in game on its Mods screen, no restart needed.
+Settings are in [CONFIG.md](CONFIG.md). With the Mod Manager they change in game on its Mods screen, no restart needed. With Exiled's Toolkit 0.17.0 or newer, each world can keep its own mode: pick it for a new world in Customizable Difficulty, or change it for that world alone on the Mods screen.
 
 Pairs well with [Full Queue](https://www.nexusmods.com/survivallog/mods/32): its queue bar shows every waiting step of the run, not just the first 5. An order you give during a run still stops the run, with or without Full Queue.
 
@@ -43,7 +43,7 @@ Delete `LootAllPreDisaster.dll` from the `BepInEx\plugins` folder. For a clean s
 
 ## Troubleshooting
 
-Check `BepInEx\LogOutput.log` for `===== Loot All Pre-Disaster 0.1.1 started`. The same lines are in `BepInEx\loot-all-pre-disaster.log`, which survives restarts, along with one line per click and one per run end.
+Check `BepInEx\LogOutput.log` for `===== Loot All Pre-Disaster 0.2.0 started`. The same lines are in `BepInEx\loot-all-pre-disaster.log`, which survives restarts, along with one line per click and one per run end.
 
 If the Mods menu has no **Loot this store** entry, make sure Exiled's Toolkit 0.5.0 or newer is installed and that the disaster has not happened yet.
 

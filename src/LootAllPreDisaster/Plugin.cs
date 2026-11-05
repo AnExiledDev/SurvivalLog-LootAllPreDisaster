@@ -15,7 +15,7 @@ namespace LootAllPreDisaster;
 public sealed class Plugin : BasePlugin
 {
     private const string Guid = "com.dev.survivallog.lootallpredisaster";
-    private const string Version = "0.1.1";
+    private const string Version = "0.2.0";
 
     /// <summary>A trash can with a down arrow: emptying something into your own storage.</summary>
     private const string Icon = "M5 4h14v4H5zM6 9h12l-1 11H7zM12 11v6M9.5 14.5 12 17l2.5-2.5";
@@ -30,7 +30,7 @@ public sealed class Plugin : BasePlugin
         var mode = Config.Bind("Loot", "Mode", 1, new ConfigDescription(
             "How a press loots the store. 1: walk to each container and interaction; each container's bag window opens and you take what you want. 2: walk to each one and take everything at once with no window, into the trunk first if you have a car or shopping cart, then the bag. 3: take everything at once with no window and no walking; each action still takes its normal time.\n" +
             "按下后如何搜寻商店。1：走到每个容器和互动处；每个容器的背包窗口会打开，由你自己拿取想要的物品。2：走到每一处，不打开窗口直接拿走全部物品，有汽车或购物车时先放进后备箱，再放进背包。3：不打开窗口、不走动，直接拿走全部物品；每个动作仍需正常的时间。",
-            new AcceptableValueRange<int>(1, 3)));
+            new AcceptableValueRange<int>(1, 3), WorldRule.Tag));
         var settings = WatchSettings(mode, log.Write);
         var store = new GameStore(log.Write);
         var controller = new LootController(store, settings, log.Write);
