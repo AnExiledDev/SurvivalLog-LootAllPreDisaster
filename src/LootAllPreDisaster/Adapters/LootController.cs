@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ExiledToolkit;
+using ExiledToolkit.Game;
+using ExiledToolkit.Kit;
 using LootAllPreDisaster.Core;
 
 namespace LootAllPreDisaster.Adapters;
@@ -169,6 +171,6 @@ internal sealed class LootController
         _log("run ended: " + why);
     }
 
-    private static void Toast(Text text, ToastKind kind) =>
+    private static void Toast(Phrase text, ToastKind kind) =>
         Toasts.Show(new ToastRequest(Texts.Source.Pick(GameLanguage.IsChinese()), text.Pick(GameLanguage.IsChinese())) { Kind = kind });
 }

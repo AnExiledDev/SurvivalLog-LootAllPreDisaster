@@ -1,7 +1,7 @@
 using System;
+using ExiledToolkit.Game;
 using GameCore.HotUpdate;
 using GameCore.HotUpdate.Battle.Logic;
-using HarmonyLib;
 using LootAllPreDisaster.Core;
 
 namespace LootAllPreDisaster.Adapters;
@@ -16,7 +16,7 @@ namespace LootAllPreDisaster.Adapters;
 internal static class OrderPatch
 {
     private static Action<string> _log = _ => { };
-    private static bool _hasReportedFailure;
+    private static PatchKit? _hooks;
 
     /// <summary>The run in progress; the ticker and the hook both run on the game's main thread.</summary>
     public static LootRun Run = LootRun.None;
@@ -27,22 +27,20 @@ internal static class OrderPatch
     /// <summary>True while the run lines up its own actions, which go through the same call.</summary>
     public static bool IsRunStarting;
 
-    public static void Apply(Harmony harmony, Action<string> log)
+    public static void Apply(PatchKit hooks, Action<string> log)
     {
         _log = log;
+        _hooks = hooks;
 
-        try
-        {
-            var target = AccessTools.Method(typeof(ActionCacheComponent), nameof(ActionCacheComponent.DoActionCache), new[] { typeof(ActionSourceType) })
-                         ?? throw new MissingMethodException("ActionCacheComponent.DoActionCache(ActionSourceType)");
-
-            harmony.Patch(target, prefix: new HarmonyMethod(typeof(OrderPatch), nameof(BeforeOrder)), postfix: new HarmonyMethod(typeof(OrderPatch), nameof(AfterOrder)));
-            log("orders hooked: an order from the player ends a run");
-        }
-        catch (Exception ex)
-        {
-            log($"could not hook orders, a run can only be stopped by leaving the store: {ex.Message}");
-        }
+        hooks.Patch(
+            typeof(OrderPatch),
+            typeof(ActionCacheComponent),
+            nameof(ActionCacheComponent.DoActionCache),
+            new[] { typeof(ActionSourceType) },
+            prefix: nameof(BeforeOrder),
+            postfix: nameof(AfterOrder),
+            done: "orders hooked: an order from the player ends a run",
+            consequence: "a run can only be stopped by leaving the store");
     }
 
     /// <summary>Runs inside the game's own call; an escaping exception would reach native code.</summary>
@@ -84,11 +82,6 @@ internal static class OrderPatch
         }
     }
 
-    private static void ReportFailure(Exception ex)
-    {
-        if (_hasReportedFailure) return;
-
-        _hasReportedFailure = true;
-        _log($"handling an order failed (reported once): {ex}");
-    }
+    /// <summary>Both hooks share one kind, so an order that keeps failing is logged once, not once per hook.</summary>
+    private static void ReportFailure(Exception ex) => _hooks?.Fail("handling an order", ex);
 }

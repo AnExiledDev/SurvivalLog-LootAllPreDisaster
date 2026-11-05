@@ -1,4 +1,5 @@
 using System;
+using ExiledToolkit.Kit;
 
 namespace LootAllPreDisaster.Core;
 
@@ -13,7 +14,7 @@ public enum Place
 
 public abstract record PressDecision
 {
-    public sealed record Refuse(Text Message) : PressDecision;
+    public sealed record Refuse(Phrase Message) : PressDecision;
 
     public sealed record Start(RunPlan Plan) : PressDecision;
 }

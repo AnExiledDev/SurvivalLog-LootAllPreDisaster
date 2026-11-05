@@ -34,7 +34,7 @@ Works in English and Chinese.
 [list]
 [*]Survival Log 1.1.19611. A game update can break it until the mod is updated.[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/12]BepInEx for Survival Log[/url]. Install it first.[/*]
-[*][url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.5.0 or newer, which draws the Mods menu and the notices. Loot All Pre-Disaster does not load without it.[/*]
+[*][url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.19.0 or newer, which draws the Mods menu and the notices. Loot All Pre-Disaster does not load without it.[/*]
 [/list]
 
 [size=5]Installation[/size]
@@ -50,7 +50,7 @@ Works in English and Chinese.
 Delete [font=Courier New]LootAllPreDisaster.dll[/font] from the [font=Courier New]BepInEx\plugins[/font] folder.
 
 [size=5]Configuration[/size]
-To change the mode, edit [font=Courier New]BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg[/font] while the game is closed, or change it in game on the Mod Manager's Mods screen with no restart. A new mode applies from the next click (see [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CONFIG.md]CONFIG.md[/url]; the cfg file explains each setting in English and Chinese). With Exiled's Toolkit 0.17.0 or newer, each world can keep its own mode: pick it for a new world in Customizable Difficulty, or, while you play, change it for that world alone on the Mods screen.
+To change the mode, edit [font=Courier New]BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg[/font] while the game is closed, or change it in game on the Mod Manager's Mods screen with no restart. A new mode applies from the next click (see [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CONFIG.md]CONFIG.md[/url]; the cfg file explains each setting in English and Chinese). Each world can keep its own mode: pick it for a new world in Customizable Difficulty, or, while you play, change it for that world alone on the Mods screen.
 
 [size=5]Feedback[/size]
 Found a bug or have an idea? Come say hi on the [url=https://discord.gg/trTsyxUFqg]Core Directive Discord[/url], or leave a comment here. For bugs, please include [font=Courier New]BepInEx\LogOutput.log[/font] and [font=Courier New]BepInEx\loot-all-pre-disaster.log[/font].
@@ -91,7 +91,7 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPr
 [list]
 [*]Survival Log 1.1.19611。游戏更新后模组可能暂时失效，直到模组更新为止。[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/12]BepInEx for Survival Log[/url]，请先安装。[/*]
-[*][url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.5.0 或更新版本，用于显示「模组」菜单和提示。没有它，Loot All Pre-Disaster 无法加载。[/*]
+[*][url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.19.0 或更新版本，用于显示「模组」菜单和提示。没有它，Loot All Pre-Disaster 无法加载。[/*]
 [/list]
 
 [size=5]安装[/size]
@@ -107,7 +107,7 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPr
 从 [font=Courier New]BepInEx\plugins[/font] 文件夹中删除 [font=Courier New]LootAllPreDisaster.dll[/font]。
 
 [size=5]配置[/size]
-可以在游戏内 Mod Manager 的「模组」界面修改，无需重启；也可以在游戏关闭时编辑 [font=Courier New]BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg[/font]。新的模式从下一次点击起生效。装了 Exiled's Toolkit 0.17.0 或更新版本时，每个存档都可以有自己的模式：新存档可以在「自定义难度」里选，游戏中也可以在「模组」界面只为当前存档修改。配置文件中每项设置都有中文说明，完整说明见 [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CONFIG.md]CONFIG.md[/url]（英文）。
+可以在游戏内 Mod Manager 的「模组」界面修改，无需重启；也可以在游戏关闭时编辑 [font=Courier New]BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg[/font]。新的模式从下一次点击起生效。每个存档都可以有自己的模式：新存档可以在「自定义难度」里选，游戏中也可以在「模组」界面只为当前存档修改。配置文件中每项设置都有中文说明，完整说明见 [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CONFIG.md]CONFIG.md[/url]（英文）。
 
 [size=5]反馈[/size]
 发现 bug 或有好点子？欢迎来 [url=https://discord.gg/trTsyxUFqg]Core Directive Discord[/url] 打个招呼，或在这里留言。报告 bug 时，请附上 [font=Courier New]BepInEx\LogOutput.log[/font] 和 [font=Courier New]BepInEx\loot-all-pre-disaster.log[/font]。

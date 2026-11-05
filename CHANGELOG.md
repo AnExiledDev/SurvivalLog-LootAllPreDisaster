@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1
+
+- Now uses Exiled's Toolkit for its shared parts, so it needs Exiled's Toolkit 0.19.0 or newer.
+- Made for Survival Log 1.1.20719.
+
 ## 0.2.0
 
 - Each world can keep its own `Mode`. With Exiled's Toolkit 0.17.0 or newer, pick it for a new world in Customizable Difficulty, or change it for the world you are playing on the Mod Manager's Mods screen.

@@ -63,7 +63,7 @@ public class PressAndSettingsTests
     [Fact]
     public void The_started_message_counts_in_english_singular_and_plural()
     {
-        Assert.Equal("Looting 1 container and 2 interactions.", Texts.Started(1, 2).English);
-        Assert.Equal("Looting 3 containers and 1 interaction.", Texts.Started(3, 1).English);
+        Assert.Equal("Looting 1 container and 2 interactions.", Texts.Started(1, 2).En);
+        Assert.Equal("Looting 3 containers and 1 interaction.", Texts.Started(3, 1).En);
     }
 }

@@ -1,6 +1,6 @@
 # Loot All Pre-Disaster settings
 
-Settings live in `BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg`, created the first time the game starts with the mod. Change them in game on the Mod Manager's Mods screen with no restart, or edit the file while the game is closed. A new `Mode` applies from the next click. With Exiled's Toolkit 0.17.0 or newer, each world can keep its own `Mode`: pick it for a new world in Customizable Difficulty, or, while you play, change it for that world alone on the Mods screen. Delete the file to get the defaults back.
+Settings live in `BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg`, created the first time the game starts with the mod. Change them in game on the Mod Manager's Mods screen with no restart, or edit the file while the game is closed. A new `Mode` applies from the next click. Each world can keep its own `Mode`: pick it for a new world in Customizable Difficulty, or, while you play, change it for that world alone on the Mods screen. Delete the file to get the defaults back.
 
 ## Loot
 
