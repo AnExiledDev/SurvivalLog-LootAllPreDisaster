@@ -13,7 +13,7 @@ namespace LootAllPreDisaster.Adapters;
 
 /// <summary>
 /// The game's side of a run: where the player is, the store's furniture, lining up actions the way the furniture's
-/// own buttons do, and emptying an opened container with the game's own whole-container move. Every read goes through
+/// own buttons do, and emptying an opened container with the game's whole-container move. Every read goes through
 /// singletons the game already made. Each call fails soft, logging once per kind of call.
 /// </summary>
 internal sealed class GameStore
@@ -188,7 +188,7 @@ internal sealed class GameStore
 
     /// <summary>
     /// Empties a container with the move the game's Take All button ends in: into the trunk first when the player has
-    /// one, then into the bag. Each move takes what fits, and the game's own lock and weight checks apply. Answers how
+    /// one, then into the bag. Each move takes what fits, and the game's lock and weight checks apply. Answers how
     /// many stacks are left in the container; one that cannot be read counts as left behind, which stops the run.
     /// </summary>
     public int Take(long containerId)

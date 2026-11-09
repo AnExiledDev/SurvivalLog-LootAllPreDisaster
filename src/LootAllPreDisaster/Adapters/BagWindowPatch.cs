@@ -35,7 +35,7 @@ internal static class BagWindowPatch
             consequence: "a window may stay open after its container is emptied");
     }
 
-    /// <summary>Runs inside the game's own call; an escaping exception would reach native code.</summary>
+    /// <summary>Runs inside the game's call; an escaping exception would reach native code.</summary>
     private static void AfterOpen(Il2CppSystem.Collections.Generic.List<Data_Bag> __0)
     {
         try

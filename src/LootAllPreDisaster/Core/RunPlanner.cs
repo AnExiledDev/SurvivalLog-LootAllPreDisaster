@@ -46,7 +46,7 @@ public static class RunPlanner
 
             foreach (var func in visit.Funcs)
             {
-                // The game's own furniture button lines up the walk before each of its actions, so the run does too.
+                // The game's furniture button lines up the walk before each of its actions, so the run does too.
                 if (settings.Walks && furniture.WalkActionId > 0) queue.Add(new QueuedAction(furniture.WalkActionId, furniture.Id));
 
                 queue.AddRange(func.ActionIds.Select(actionId => new QueuedAction(actionId, furniture.Id)));

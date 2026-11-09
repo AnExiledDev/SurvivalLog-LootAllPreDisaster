@@ -17,7 +17,7 @@ Before the disaster, cleaning out a store means clicking every cupboard, fridge 
 
 Pairs well with [url=https://www.nexusmods.com/survivallog/mods/32]Full Queue[/url]: its queue bar shows every waiting step of the run. An order you give during a run still stops the run, with or without Full Queue.
 
-The mod adds no data of its own to your save. Everything it does is the game's own searches, interactions and item moves. You can remove it at any time.
+The mod adds no data of its own to your save. Everything it does is the game's searches, interactions and item moves. You can remove it at any time.
 
 Works in English and Chinese.
 

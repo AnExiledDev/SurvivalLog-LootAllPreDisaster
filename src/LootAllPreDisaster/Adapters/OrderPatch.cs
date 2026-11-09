@@ -43,7 +43,7 @@ internal static class OrderPatch
             consequence: "a run can only be stopped by leaving the store");
     }
 
-    /// <summary>Runs inside the game's own call; an escaping exception would reach native code.</summary>
+    /// <summary>Runs inside the game's call; an escaping exception would reach native code.</summary>
     private static void BeforeOrder(ActionCacheComponent __instance, ActionSourceType sourceType, ref bool __state)
     {
         __state = false;
