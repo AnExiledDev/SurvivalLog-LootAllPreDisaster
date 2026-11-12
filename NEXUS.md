@@ -1,5 +1,5 @@
 Name: Loot All Pre-Disaster
-Summary: Clean out a whole store before the disaster with one click: every cupboard, fridge and cash register is searched and every daily reward is used, from the inventory's Mods menu. Walk to each one and loot by hand, take everything on the way, or take it all without walking. Any order you give stops the run. Needs Exiled's Toolkit.
+Summary: Clean out a whole store before the disaster with one click in the inventory's Mods menu. Every cupboard, fridge and cash register gets searched and every daily reward gets used. Walk to each one and loot by hand, take everything on the way, or take it all without walking. Any order you give during a run stops it right away. Needs Exiled's Toolkit.
 
 Description (BBCode):
 [center][img]https://sldb.core-directive.com/media/save/1-save-safe.png[/img][/center]
@@ -9,15 +9,15 @@ Before the disaster, cleaning out a store means clicking every cupboard, fridge 
 [size=5]Main features[/size]
 [list]
 [*][b]One click per store[/b]: open the inventory and pick [b]Loot this store[/b] from the Mods dropdown. The entry only shows before the disaster.[/*]
-[*][b]Every container, every reward[/b]: each container not yet searched is searched, and each interaction with a daily reward left today is used. Shop shelves are never touched.[/*]
-[*][b]Three modes[/b]: 1) walk to each one and loot each bag window by hand, the default and the closest to normal play; 2) walk to each one and take everything with no window, trunk first if you own a car or shopping cart, then your bag; 3) take everything with no window and no walking; each action still takes its normal time.[/*]
-[*][b]Stop any time[/b]: any order you give during a run, such as a click to walk somewhere, stops the run and is carried out at once.[/*]
-[*][b]Stops when you are full[/b]: in modes 2 and 3, a container that only part fits gives what fits and the run stops. Unload at home, come back and click again to carry on where you left off.[/*]
+[*][b]Every container, every reward[/b]: the run searches every container you haven't searched yet and uses every interaction that still has a daily reward left today. Shop shelves are never touched.[/*]
+[*][b]Three modes[/b]: mode 1, the default, walks you to each one and opens its bag window so you take what you want, which is the closest to playing by hand. Mode 2 walks you to each one and takes everything with no window, into your trunk first if you own a car or shopping cart, then your bag. Mode 3 takes everything with no window and no walking, and each action still takes its normal time.[/*]
+[*][b]Stop any time[/b]: any order you give during a run, such as a click to walk somewhere, stops the run and is carried out right away.[/*]
+[*][b]Stops when you are full[/b]: in modes 2 and 3, if only part of a container fits, you get what fits and the run stops. Unload at home, come back and click again to carry on where you left off.[/*]
 [/list]
 
-Pairs well with [url=https://www.nexusmods.com/survivallog/mods/32]Full Queue[/url]: its queue bar shows every waiting step of the run. An order you give during a run still stops the run, with or without Full Queue.
+Pairs well with [url=https://www.nexusmods.com/survivallog/mods/32]Full Queue[/url], which shows every waiting step of the run in the queue bar. An order you give during a run still stops the run, with or without Full Queue.
 
-The mod adds no data of its own to your save. Everything it does is the game's searches, interactions and item moves. You can remove it at any time.
+The mod adds nothing to your save. It only does the searches, interactions and item moves you could do by hand, so you can remove it at any time.
 
 Works in English and Chinese.
 
@@ -32,7 +32,7 @@ Works in English and Chinese.
 
 [size=5]Requirements[/size]
 [list]
-[*]Survival Log 1.1.19611. A game update can break it until the mod is updated.[/*]
+[*]Survival Log 1.1.20719. A game update can break it until the mod is updated.[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/12]BepInEx for Survival Log[/url]. Install it first.[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.19.0 or newer, which draws the Mods menu and the notices. Loot All Pre-Disaster does not load without it.[/*]
 [*]Optional: [url=https://www.nexusmods.com/survivallog/mods/73]Mod Manager[/url]. With it, you can change every setting in game on its Mods screen and see what each one does, without opening the config file.[/*]
@@ -51,11 +51,11 @@ Works in English and Chinese.
 Delete [font=Courier New]LootAllPreDisaster.dll[/font] from the [font=Courier New]BepInEx\plugins[/font] folder.
 
 [size=5]Configuration[/size]
-To change the mode, edit [font=Courier New]BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg[/font] while the game is closed, or change it in game on the Mod Manager's Mods screen with no restart. A new mode applies from the next click (see [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CONFIG.md]CONFIG.md[/url]; the cfg file explains each setting in English and Chinese). Each world can keep its own mode: pick it for a new world in Customizable Difficulty, or, while you play, change it for that world alone on the Mods screen.
+To change the mode, edit [font=Courier New]BepInEx\config\com.dev.survivallog.lootallpredisaster.cfg[/font] while the game is closed, or change it in game on the Mod Manager's Mods screen with no restart. A new mode applies from the next click. The cfg file explains each setting in English and Chinese, and [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster/blob/main/CONFIG.md]CONFIG.md[/url] has the full list. Each world can keep its own mode: pick it for a new world in Customizable Difficulty, or, while you play, change it for that world alone on the Mods screen.
 
 [size=5]Feedback[/size]
 Found a bug or have an idea? Come say hi on the [url=https://discord.gg/trTsyxUFqg]Core Directive Discord[/url], or leave a comment here. For bugs, please include [font=Courier New]BepInEx\LogOutput.log[/font] and [font=Courier New]BepInEx\loot-all-pre-disaster.log[/font].
-To reach me directly, message [b]exiled.dev[/b] on Discord; you can find me in the [url=https://discord.gg/MZGg4gQAUe]official Survival Log Discord[/url]. I'm also on X as [url=https://x.com/AnExiledDev]@AnExiledDev[/url].
+To reach me directly, message [b]exiled.dev[/b] on Discord. You can find me in the [url=https://discord.gg/MZGg4gQAUe]official Survival Log Discord[/url]. I'm also on X as [url=https://x.com/AnExiledDev]@AnExiledDev[/url].
 
 [size=5]Source and license[/size]
 Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster]github.com/AnExiledDev/SurvivalLog-LootAllPreDisaster[/url]
@@ -69,14 +69,14 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPr
 [list]
 [*][b]一家店一键搞定[/b]：打开背包，在「模组」下拉菜单中选择[b]「搜寻整家店」[/b]。该选项只在灾变前显示。[/*]
 [*][b]所有容器，所有奖励[/b]：搜寻每个还没搜寻过的容器，并使用每个今天还有剩余奖励的互动。商店货架不受影响。[/*]
-[*][b]三种模式[/b]：1）走到每一处，在每个背包窗口中自己拿取，这是默认模式，也最接近正常游玩；2）走到每一处，不打开窗口直接拿走全部物品，有汽车或购物车时先放进后备箱，再放进背包；3）不打开窗口、不走动，直接拿走全部物品；每个动作仍需正常的时间。[/*]
+[*][b]三种模式[/b]：模式 1 是默认模式，会走到每一处并打开背包窗口，由你自己拿想要的东西，最接近手动游玩。模式 2 会走到每一处，不打开窗口，直接拿走全部物品，有汽车或购物车时先放进后备箱，再放进背包。模式 3 不打开窗口，也不走动，直接拿走全部物品，每个动作仍然花正常的时间。[/*]
 [*][b]随时停止[/b]：搜寻过程中下达任何指令（比如点击走到别处），都会停止本次搜寻，并立即执行你的指令。[/*]
-[*][b]装满即停[/b]：在模式 2 和 3 中，如果一个容器只能装下一部分，会拿走能装下的，然后停止。回家卸货后再回来按一次，即可从中断处继续。[/*]
+[*][b]装满即停[/b]：在模式 2 和 3 中，如果一个容器里的东西只装得下一部分，就先拿走装得下的，然后停止搜寻。回家卸货后再回来点一次，就会从中断的地方继续。[/*]
 [/list]
 
-推荐搭配 [url=https://www.nexusmods.com/survivallog/mods/32]Full Queue[/url]：它的队列栏会显示本次搜寻所有等待中的步骤。无论是否安装 Full Queue，搜寻过程中下达的指令都会停止本次搜寻。
+推荐搭配 [url=https://www.nexusmods.com/survivallog/mods/32]Full Queue[/url]，它会在队列栏里显示本次搜寻所有等待中的步骤。无论是否安装 Full Queue，搜寻过程中下达的指令都会停止本次搜寻。
 
-模组不会往存档里写入自己的数据。它做的一切都是游戏自己的搜寻、互动和物品移动。你可以随时移除它。
+模组不会往存档里添加任何东西。它只做你自己也能手动完成的搜寻、互动和物品移动，所以随时可以移除。
 
 支持英文和中文。
 
@@ -90,7 +90,7 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-LootAllPr
 
 [size=5]前置要求[/size]
 [list]
-[*]Survival Log 1.1.19611。游戏更新后模组可能暂时失效，直到模组更新为止。[/*]
+[*]Survival Log 1.1.20719。游戏更新后模组可能暂时失效，直到模组更新为止。[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/12]BepInEx for Survival Log[/url]，请先安装。[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.19.0 或更新版本，用于显示「模组」菜单和提示。没有它，Loot All Pre-Disaster 无法加载。[/*]
 [*]可选：[url=https://www.nexusmods.com/survivallog/mods/73]Mod Manager[/url]。装了它，可以在游戏里它的「模组」界面修改每项设置，并看到每项的说明，不用打开配置文件。[/*]

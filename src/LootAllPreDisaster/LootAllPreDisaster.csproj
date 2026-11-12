@@ -31,7 +31,7 @@
   <!-- What the Mod Manager's Mods screen shows about this mod. -->
   <ItemGroup>
     <AssemblyMetadata Include="ModManager.Name" Value="Loot All Pre-Disaster&#10;灾变前全部搜寻" />
-    <AssemblyMetadata Include="ModManager.Description" Value="Before the disaster, one click in the inventory's Mods menu searches every container and uses every daily reward in the store you are in.&#10;灾变前，在背包「模组」菜单中一键搜寻你所在商店的所有容器，并使用所有每日奖励互动。" />
+    <AssemblyMetadata Include="ModManager.Description" Value="Before the disaster, one click in the inventory's Mods menu searches every container and uses every daily reward in the store you're in.&#10;灾变前，在背包「模组」菜单中点一下，就能搜寻你所在商店的所有容器，并使用所有还有每日奖励的互动。" />
     <AssemblyMetadata Include="ModManager.Author" Value="AnExiledDev" />
     <AssemblyMetadata Include="ModManager.Category" Value="QualityOfLife" />
     <AssemblyMetadata Include="ModManager.GameVersion" Value="1.1.20719" />

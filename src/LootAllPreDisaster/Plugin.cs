@@ -16,7 +16,7 @@ namespace LootAllPreDisaster;
 public sealed class Plugin : BasePlugin
 {
     private const string Guid = "com.dev.survivallog.lootallpredisaster";
-    private const string Version = "0.2.1";
+    private const string Version = "0.2.2";
 
     /// <summary>Lines add up over many sessions, so past 1 MB the file is moved aside and started again.</summary>
     private const long MaxLogBytes = 1024 * 1024;
@@ -31,8 +31,8 @@ public sealed class Plugin : BasePlugin
         log.Write($"===== Loot All Pre-Disaster {Version} started");
 
         var mode = Config.Bind("Loot", "Mode", 1, new ConfigDescription(
-            "How a press loots the store. 1: walk to each container and interaction; each container's bag window opens and you take what you want. 2: walk to each one and take everything at once with no window, into the trunk first if you have a car or shopping cart, then the bag. 3: take everything at once with no window and no walking; each action still takes its normal time.\n" +
-            "按下后如何搜寻商店。1：走到每个容器和互动处；每个容器的背包窗口会打开，由你自己拿取想要的物品。2：走到每一处，不打开窗口直接拿走全部物品，有汽车或购物车时先放进后备箱，再放进背包。3：不打开窗口、不走动，直接拿走全部物品；每个动作仍需正常的时间。",
+            "What happens when you click Loot this store. 1: you walk to each container and interaction, and each container's bag window opens so you can take what you want. 2: you walk to each one and take everything with no window. Items go into your trunk first if you have a car or shopping cart, then into your bag. 3: you take everything with no window and without walking. Each action still takes its normal time.\n" +
+            "点击「搜寻整家店」后怎么搜。1：走到每个容器和互动处，每个容器都会打开背包窗口，你自己拿想要的东西。2：走到每一处，不打开窗口，直接拿走全部物品。有汽车或购物车时先放进后备箱，再放进背包。3：不打开窗口，也不走动，直接拿走全部物品。每个动作仍然花正常的时间。",
             new AcceptableValueRange<int>(1, 3), WorldRules.Tag));
         var settings = WatchSettings(mode, log.Write);
         var store = new GameStore(log.Write);

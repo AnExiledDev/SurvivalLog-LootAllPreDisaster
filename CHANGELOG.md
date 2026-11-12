@@ -1,8 +1,13 @@
 # Changelog
 
+## 0.2.2
+
+- Clearer wording in the settings and in the messages on screen.
+- Made for Survival Log 1.1.20719.
+
 ## 0.2.1
 
-- Now uses Exiled's Toolkit for its shared parts, so it needs Exiled's Toolkit 0.19.0 or newer.
+- Now needs Exiled's Toolkit 0.19.0 or newer.
 - Made for Survival Log 1.1.20719.
 
 ## 0.2.0

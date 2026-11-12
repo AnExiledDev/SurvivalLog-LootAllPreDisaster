@@ -10,8 +10,8 @@ public static class Texts
     public static readonly Phrase MenuLabel = new("Loot this store", "搜寻整家店");
 
     public static readonly Phrase MenuTitle = new(
-        "Search every container and use every reward item in the store you are in",
-        "搜寻你所在商店的所有容器，并使用所有能获得奖励的物品");
+        "Search every container and use every daily reward in the store you're in",
+        "搜寻你所在商店的所有容器，并使用所有还有每日奖励的互动");
 
     public static readonly Phrase NoGame = new("Load a game first.", "请先载入存档。");
 
@@ -22,16 +22,16 @@ public static class Texts
     public static readonly Phrase NothingLeft = new("Nothing left to loot in this store today.", "这家店今天没有可搜寻的东西了。");
 
     public static readonly Phrase Failed = new(
-        "Could not start. See BepInEx\\loot-all-pre-disaster.log.",
-        "无法开始。请查看 BepInEx\\loot-all-pre-disaster.log。");
+        "The run couldn't start. Check BepInEx\\loot-all-pre-disaster.log.",
+        "无法开始搜寻。请查看 BepInEx\\loot-all-pre-disaster.log。");
 
     public static readonly Phrase TrunkAndBagFull = new(
-        "Trunk and bag are full. Unload at home, then press again to carry on.",
-        "后备箱和背包已满。回家卸货后再按一次即可继续。");
+        "Your trunk and bag are full. Unload at home, then click Loot this store again to carry on.",
+        "后备箱和背包都满了。回家卸货后，再点一次「搜寻整家店」即可继续。");
 
     public static readonly Phrase BagFull = new(
-        "Your bag is full. Unload at home, then press again to carry on.",
-        "背包已满。回家卸货后再按一次即可继续。");
+        "Your bag is full. Unload at home, then click Loot this store again to carry on.",
+        "背包满了。回家卸货后，再点一次「搜寻整家店」即可继续。");
 
     public static Phrase Started(int containers, int rewards) => new(
         $"Looting {containers} {Plural(containers, "container", "containers")} and {rewards} {Plural(rewards, "interaction", "interactions")}.",
